@@ -49,11 +49,11 @@ module.exports = function(app, db) {
     app.delete('/note/:id', checkId, (req, res) => {
         const id = req.id;
         const details = { '_id': new ObjectID(id) };
-        db.collection('notes').remove(details, (err, item) => {
+        db.collection('notes').remove(details, (err, result) => {
             if (err) {
                 res.send({'error':'An error has occurred'});
             } else {
-                res.send('Note ' + id + ' deleted!');
+                res.send({ message: 'Note ' + id + ' deleted!', result });
             }
         });
     });

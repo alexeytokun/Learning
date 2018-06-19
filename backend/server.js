@@ -22,5 +22,7 @@ MongoClient.connect(db.url, (err, database) => {
     });
 });
 
+module.exports = app;
+
 
 
